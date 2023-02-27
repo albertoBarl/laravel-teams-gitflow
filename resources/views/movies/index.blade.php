@@ -1,29 +1,29 @@
 @section('content')
     <div class="main-container">
         <div class="row">
-        @foreach ($comics as $comic)
+        @foreach ($movies as $movie)
             <div class="card">
                 <div class="card-image">
-                    <a href="{{ route('comics.show', ['comic' => $comic['id']] ) }}">
-                        <img src="{{$comic['thumb']}}" alt="">
+                    <a href="{{ route('movies.show', ['movie' => $movie['id']] ) }}">
+                        <img src="{{$movie['thumb']}}" alt="">
                     </a>
                 </div>
-                <a href="{{ route('comics.show', ['comic' => $comic['id']] ) }}" class="card-name">{{$comic['title']}}</a>
+                <a href="{{ route('movies.show', ['movie' => $movie['id']] ) }}" class="card-name">{{$movie['title']}}</a>
                 <div class="card-buttons">
-                    <a href="{{ route('comics.edit', ['comic' => $comic['id']] ) }}">
-                        <button class="edit-comic">Modifica il fumetto</button>
+                    <a href="{{ route('movies.edit', ['movie' => $movie['id']] ) }}">
+                        <button class="edit-movie">Modifica il fumetto</button>
                     </a>
-                    <form action="{{ route('comics.destroy', ['comic' => $comic['id']] ) }}" method="POST">
+                    <form action="{{ route('movies.destroy', ['movie' => $movie['id']] ) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="destroy-comic"><i class="fa-solid fa-trash"></i></button>
+                        <button type="submit" class="destroy-movie"><i class="fa-solid fa-trash"></i></button>
                     </form>
                 </div>
             </div>
         @endforeach
         </div>
-        <a href="{{ route('comics.create') }}">
-            <button class="new-comics">Aggiungi nuovo Fumetto</div>
+        <a href="{{ route('movies.create') }}">
+            <button class="new-movies">Aggiungi nuovo Fumetto</div>
         </a>
     </div>
     <div class="blue-section">
