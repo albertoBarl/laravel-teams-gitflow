@@ -8,6 +8,10 @@
 					<form action="{{ "movies.store" }}" method="POST">
 						<div class="mb-4">
 							<label for="">Titolo</label>
+							<input type="text" class="form-control" name="title" placeholder="Inserisci titolo">
+						</div>
+						<div class="mb-4">
+							<label for="">Titolo originale</label>
 							<input type="text" class="form-control" name="original_title" placeholder="Inserisci titolo originale">
 						</div>
 						<div class="mb-4">
