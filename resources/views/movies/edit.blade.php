@@ -5,7 +5,7 @@
 			<div class="row">
 				<div class="col">
 					<h1>Aggiungi film</h1>
-					<form action="{{ "movies.store" }}" method="POST">
+					<form action="{{ route('comics.update', ['movie' => $movie['id']])}}" method="POST">
 						<div class="mb-4">
 							<label for="">Titolo</label>
 							<input type="text" value="{{ old('title') ?? $comic->title }}" class="form-control" name="original_title" placeholder="Inserisci titolo originale">
