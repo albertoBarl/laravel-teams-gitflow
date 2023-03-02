@@ -1,9 +1,4 @@
-
-@import '~bootstrap/scss/bootstrap';
-
-.my-bg-info-subtle {
-	background-color: $cyan-900;
-
+@import "~bootstrap/scss/bootstrap";
 
 // ========================= HEADER
 #header {
@@ -43,4 +38,9 @@
             text-decoration: underline;
         }
     }
+}
+
+.my-bg-info-subtle {
+    background-color: $cyan-900;
+    min-height: 700px;
 }
