@@ -15,7 +15,7 @@ class MoviesController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        
+
         return view('movies.index', compact('movies'));
     }
 
@@ -78,11 +78,11 @@ class MoviesController extends Controller
     public function update(Request $request, Movie $movie)
     {
         $data = $request->validated();
-        $slug = Post::generateSlug($request->title, '-');
+        $slug = Movie::generateSlug($request->title, '-');
         $data['slug'] = $slug;
 
-        $post->update($data);
-        return redirect()->route('movies.index')->with('message', $movie->title.' è stato aggiornato');
+        $movie->update($data);
+        return redirect()->route('movies.index')->with('message', $movie->title . ' è stato aggiornato');
     }
 
     /**
