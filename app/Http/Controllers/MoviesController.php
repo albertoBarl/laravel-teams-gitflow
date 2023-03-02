@@ -63,9 +63,9 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Movie $movie)
     {
-        return view('movies.edit');
+        return view('movies.edit', compact('movie'));
     }
 
     /**
@@ -75,9 +75,14 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Movie $movie)
     {
-        //
+        $data = $request->validated();
+        $slug = Post::generateSlug($request->title, '-');
+        $data['slug'] = $slug;
+
+        $post->update($data);
+        return redirect()->route('movies.index')->with('message', $movie->title.' è stato aggiornato');
     }
 
     /**
