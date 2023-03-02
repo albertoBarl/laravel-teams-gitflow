@@ -25,7 +25,7 @@
                     </div>
                 @endforeach
                 <a href="{{ route('movies.create') }}">
-                    <button class="btn btn-outline-warning">Aggiungi nuovo Fumetto</button>
+                    <button class="btn btn-outline-warning">Aggiungi nuovo film</button>
                 </a>
             </div>
         </div>

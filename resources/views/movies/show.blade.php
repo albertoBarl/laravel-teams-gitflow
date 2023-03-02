@@ -11,7 +11,7 @@
                     <div class="fs-5 mb-5">
                         <span class="">{{ $item['original_title'] }}</span>
                     </div>
-                    <p class="lead">{{ $item['cast'] }}</p>
+                    <p class="lead"> <span class="fw-bold">Cast:</span> {{ $item['cast'] }}</p>
                     <div class="d-flex">
                         <button class="btn btn-warning me-2">
                             <i class="fa-regular fa-pen-to-square"></i>
