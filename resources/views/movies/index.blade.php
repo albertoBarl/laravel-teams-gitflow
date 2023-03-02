@@ -19,29 +19,10 @@
                                 <li><span class="fw-bold">Release date:</span> {{ $movie['release_date'] }}</li>
                                 <li><span class="fw-bold">Vote:</span> {{ $movie['vote'] }}</li>
                             </ul>
-                            <a href="{{-- {{ route('movies.show') }} --}}" class="btn btn-info ">More info</a>
+                            <a href="{{ route('movies.show') }}" class="btn btn-info ">More info</a>
                         </div>
                     </div>
                 </div>
-                    {{-- <div class="card">
-                        <div class="card-image">
-                            <a href="{{ route('movies.show', ['movie' => $movie['id']]) }}">
-                                <img src="{{ $movie['cover-path'] }}" alt="">
-                            </a>
-                        </div>
-                        <a href="{{ route('movies.show', ['movie' => $movie['id']]) }}"
-                            class="card-name">{{ $movie['title'] }}</a>
-                        <div class="card-buttons">
-                            <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}">
-                                <button class="btn btn-warning">Modifica il fumetto</button>
-                            </a>
-                            <form action="{{ route('movies.destroy', ['movie' => $movie['id']]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                            </form>
-                        </div>
-                    </div> --}}
                 @endforeach
                 <a href="{{ route('movies.create') }}">
                     <button class="btn btn-outline-warning">Aggiungi nuovo Fumetto</button>   
