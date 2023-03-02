@@ -19,7 +19,7 @@
                                     <li><span class="fw-bold">Release date:</span> {{ $movie['release_date'] }}</li>
                                     <li><span class="fw-bold">Vote:</span> {{ $movie['vote'] }}</li>
                                 </ul>
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2 flex-wrap">
                                     <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
                                     <form action="{{ route('movies.destroy', ['movie' => $movie['id']]) }}" method="POST">
                                         @csrf
