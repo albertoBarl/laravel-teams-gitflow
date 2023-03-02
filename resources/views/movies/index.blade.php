@@ -19,10 +19,8 @@
                                     <li><span class="fw-bold">Release date:</span> {{ $movie['release_date'] }}</li>
                                     <li><span class="fw-bold">Vote:</span> {{ $movie['vote'] }}</li>
                                 </ul>
-                                <div class="d-flex">
-                                    <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button
-                                            class="btn btn-warning me-2"><i
-                                                class="fa-regular fa-pen-to-square"></i></button></a>
+                                <div class="d-flex gap-2">
+                                    <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
                                     <form action="{{ route('movies.destroy', ['movie' => $movie['id']]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -37,8 +35,6 @@
                 <a href="{{ route('movies.create') }}">
 
                     <button class="btn btn-outline-warning">Add new movie <i class="fa-solid fa-plus"></i></button>
-
-                    <button class="btn btn-outline-warning">Aggiungi nuovo film</button>
 
                 </a>
             </div>
