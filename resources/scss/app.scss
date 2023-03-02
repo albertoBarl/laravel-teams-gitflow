@@ -1,5 +1,46 @@
+
 @import '~bootstrap/scss/bootstrap';
 
 .my-bg-info-subtle {
 	background-color: $cyan-900;
+
+
+// ========================= HEADER
+#header {
+    // logo style
+    #logo {
+        img {
+            width: 50%;
+            height: auto;
+        }
+    }
+
+    // navbar style
+    #navbar {
+        ul {
+            padding-top: 15px;
+            a {
+                font-size: small;
+                color: black;
+                &:hover {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+    }
+}
+
+// ======================== FOOTER
+#footer {
+    background-image: url("/public/images/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    font-style: italic;
+    a {
+        text-decoration: none;
+        color: white;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
