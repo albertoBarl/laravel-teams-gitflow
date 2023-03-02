@@ -28,9 +28,7 @@
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa-solid fa-dumpster-fire"></i></button>
                                     </form>
-                                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-info "><button
-                                            class="btn btn-info">More info <i
-                                                class="fa-solid fa-circle-info"></i></button></a>
+                                    <a href="{{ route('movies.show', $movie->id) }}"><button class="btn btn-info">More info <i class="fa-solid fa-circle-info"></i></button></a>
                                 </div>
                             </div>
                         </div>
