@@ -37,7 +37,20 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        
+        $newMovie = new Movie();
+        $newMovie->title = $form_data['title'];
+        $newMovie->original_title = $form_data['original_title'];
+        $newMovie->nationality = $form_data['nationality'];
+        $newMovie->release_date = $form_data['release_date'];
+        $newMovie->vote = $form_data['vote'];
+        $newMovie->cast = $form_data['cast'];
+        $newMovie->cover_path = $form_data['cover_path'];
+
+        $newMovie->save();
+
+        return redirect()->route('movies.show', ['movie' => $newMovie->id]);
     }
 
     /**
