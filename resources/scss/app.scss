@@ -1,1 +1,26 @@
-@import '~bootstrap/scss/bootstrap'
+@import "~bootstrap/scss/bootstrap";
+
+// ========================= HEADER
+#header {
+    // logo style
+    #logo {
+        img {
+            width: 50%;
+            height: auto;
+        }
+    }
+
+    // navbar style
+    #navbar {
+        ul {
+            padding-top: 15px;
+            a {
+                font-size: small;
+                color: black;
+                &:hover {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
+    }
+}
