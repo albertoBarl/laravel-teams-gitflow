@@ -1,4 +1,9 @@
-@import "~bootstrap/scss/bootstrap";
+
+@import '~bootstrap/scss/bootstrap';
+
+.my-bg-info-subtle {
+	background-color: $cyan-900;
+
 
 // ========================= HEADER
 #header {
