@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
     <div class="container">
@@ -22,42 +23,42 @@
                     </div>
                     <div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="original_title">Original Title</label>
-                        <textarea type="text" class="form-control" name="original_title" id="original_title" placeholder="Add original title"></textarea>
+                        <input type="text" class="form-control" name="original_title" id="original_title" placeholder="Add original title">
                         @error('original_title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
 					<div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="nationality">Nationality</label>
-                        <textarea type="text" class="form-control" name="nationality" id="nationality" placeholder="Add nationality"></textarea>
+                        <input type="text" class="form-control" name="nationality" id="nationality" placeholder="Add nationality">
                         @error('nationality')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
 					<div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="release_date">Release Date</label>
-                        <textarea type="text" class="form-control" name="release_date" id="release_date" placeholder="Add release date"></textarea>
+                        <input type="text" class="form-control" name="release_date" id="release_date" placeholder="Add release date">
                         @error('release_date')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
 					<div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="vote">Vote</label>
-                        <textarea type="text" class="form-control" name="vote" id="vote" placeholder="Add vote"></textarea>
+                        <input type="text" class="form-control" name="vote" id="vote" placeholder="Add vote">
                         @error('vote')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
 					<div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="cast">Cast</label>
-                        <textarea type="text" class="form-control" name="cast" id="cast" placeholder="Add cast"></textarea>
+                        <input type="text" class="form-control" name="cast" id="cast" placeholder="Add cast">
                         @error('cast')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
 					<div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="cover_path">Cover Path</label>
-                        <textarea type="text" class="form-control" name="cover_path" id="cover_path" placeholder="Add URL image"></textarea>
+                        <input type="text" class="form-control" name="cover_path" id="cover_path" placeholder="Add URL image">
                         @error('cover_path')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
