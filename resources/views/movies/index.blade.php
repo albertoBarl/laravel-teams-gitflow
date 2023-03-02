@@ -33,7 +33,11 @@
                     </div>
                 @endforeach
                 <a href="{{ route('movies.create') }}">
+
                     <button class="btn btn-outline-warning">Add new movie <i class="fa-solid fa-plus"></i></button>
+
+                    <button class="btn btn-outline-warning">Aggiungi nuovo film</button>
+
                 </a>
             </div>
         </div>
