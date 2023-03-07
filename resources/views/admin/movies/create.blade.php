@@ -77,13 +77,13 @@
                     <div class="form-group m-2">
                         <div class="fs-2 fw-semibold">Actors</div>
                         @foreach ($actors as $actor)
-                        <div class="form-check @error('actors') is-invalid @enderror">
-                            <input type="checkbox" value="{{$actor->id}}" name="actors[]">
-                            <label class="form-check-label">{{$actor->name}}</label>
-                        </div>
+                            <div class="form-check @error('actors') is-invalid @enderror">
+                                <input type="checkbox" value="{{ $actor->id }}" name="actors[]">
+                                <label class="form-check-label">{{ $actor->name }}</label>
+                            </div>
                         @endforeach
                         @error('actors')
-                        <div class="text-danger">{{$message}}</div>
+                            <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-success">Save</button>

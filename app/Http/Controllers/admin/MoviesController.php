@@ -33,10 +33,9 @@ class MoviesController extends Controller
     {
 
         $genres = Genre::all();
-        return view('admin.movies.create', compact('genres'));
 
         $actors = Actor::all();
-        return view('movies.create', compact('actors'));
+        return view('admin.movies.create', compact('actors', "genres"));
     }
 
     /**

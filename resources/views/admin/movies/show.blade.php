@@ -22,9 +22,9 @@
                     </div>
                     <p><strong>Actors:</strong>
                         @forelse ($item->actors as $actor)
-                        {{$actor->name}},
+                            {{ $actor->name }},
                         @empty
-                        Nessun tag associato al Post    
+                            Nessun attore associato al film.
                         @endforelse
                     </p>
                 </div>
