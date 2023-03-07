@@ -13,7 +13,7 @@ class StoreGenreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreGenreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'genre_id' => ['nullable', 'exists:genres,id']
         ];
     }
 }

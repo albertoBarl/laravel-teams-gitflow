@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Movie as Movie;
+use App\Models\Genre;
 
 class MoviesController extends Controller
 {
@@ -27,7 +28,8 @@ class MoviesController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        $genres = Genre::all();
+        return view('admin.movies.create', compact('genres'));
     }
 
     /**
