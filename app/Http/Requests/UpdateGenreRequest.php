@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 class UpdateGenreRequest extends FormRequest
 {
     /**
@@ -13,7 +13,7 @@ class UpdateGenreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateGenreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:100'],
+            'content' => ['nullable'],
+            'genre_id' => ['nullable', 'exists:genres,id']
         ];
     }
 }

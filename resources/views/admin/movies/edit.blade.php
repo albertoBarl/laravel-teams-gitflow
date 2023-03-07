@@ -30,6 +30,14 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group my-3">
+                        <label class="fs-2 fw-semibold control-label">Genere</label>
+                        <select class="form-control" name="gnere_id" id="gnere_id">
+                            @foreach ($genres as $genre)
+                                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="nationality">Nationality</label>
                         <input type="text" class="form-control" name="nationality" id="nationality"

@@ -29,8 +29,8 @@
                         @enderror
                     </div>
                     <div class="form-group my-3">
-                        <label class="control-label">Tipo</label>
-                        <select class="form-control" name="gnere_id" id="gnere_id">
+                        <label class="fs-2 fw-semibold control-label">Genere</label>
+                        <select class="form-control" name="genre_id" id="genre_id">
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                             @endforeach

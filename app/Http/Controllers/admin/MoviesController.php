@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Movie as Movie;
 use App\Models\Genre;
+use App\Http\Requests\StoreGenreRequest;
+use App\Http\Requests\UpdateGenreRequest;
 
 class MoviesController extends Controller
 {
@@ -38,13 +40,14 @@ class MoviesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGenreRequest $request)
     {
         $form_data = $request->all();
 
         $newMovie = new Movie();
         $newMovie->title = $form_data['title'];
         $newMovie->original_title = $form_data['original_title'];
+        // $newMovie->genre = $form_data['genre'];
         $newMovie->nationality = $form_data['nationality'];
         $newMovie->release_date = $form_data['release_date'];
         $newMovie->vote = $form_data['vote'];
@@ -53,7 +56,7 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('movies.show', ['movie' => $newMovie->id]);
+        return redirect()->route('admin.movies.index', ['movie' => $newMovie->id]);
     }
 
     /**
@@ -81,7 +84,8 @@ class MoviesController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('movies.edit', compact('movie'));
+        $genres = Genre::all();
+        return view('admin.movies.edit', compact('movie','genres'));
     }
 
     /**
@@ -91,7 +95,7 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(UpdateGenreRequest $request, Movie $movie)
     {
         $data = $request->validated();
         $slug = Movie::generateSlug($request->title, '-');

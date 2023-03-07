@@ -11,6 +11,10 @@
                     <div class="fs-5 mb-5">
                         <span class="">{{ $item['original_title'] }}</span>
                     </div>
+                    <div>
+                        <h2>Categoria:</h2>
+                        <p>{{ $item->genre ?  $item->genre->name : 'Senza categoria'}}</p>
+                    </div>
                     <p class="lead"> <span class="fw-bold">Cast:</span> {{ $item['cast'] }}</p>
                     <div class="d-flex">
                         <button class="btn btn-warning me-2">
