@@ -20,6 +20,13 @@
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
+                    <p><strong>Actors:</strong>
+                        @forelse ($item->actors as $actor)
+                        {{$actor->name}},
+                        @empty
+                        Nessun tag associato al Post    
+                        @endforelse
+                    </p>
                 </div>
             </div>
         </div>
