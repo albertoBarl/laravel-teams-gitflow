@@ -70,7 +70,7 @@ class MoviesController extends Controller
             'item' => $movie
         ];
 
-        return view('movies.show', $item);
+        return view('admin.movies.show', $item);
     }
 
     /**
