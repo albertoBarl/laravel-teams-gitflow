@@ -16,4 +16,8 @@ class Movie extends Model
     public static function generateSlug($title){
         return Str::slug($title, '-');
     }
+
+    public function actors(){
+        return $this->belongsToMany(Actor::class);
+    }
 }
