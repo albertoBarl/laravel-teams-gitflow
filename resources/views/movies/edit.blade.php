@@ -11,7 +11,7 @@
                         <div class="alert alert-danger">{{ $error }}</div>
                     @endforeach
                 @endif
-                <form method="POST" action="{{ route('movies.update', $movie->id) }}">
+                <form method="POST" action="{{ route('admin.movies.update', $movie->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group m-2">

@@ -20,7 +20,7 @@
                     <a class="text-decoration-none" href="/">
                         <li>NUOVE USCITE</li>
                     </a>
-                    <a class="text-decoration-none" href="{{ route('movies.index') }}">
+                    <a class="text-decoration-none" href="{{ route('admin.movies.index') }}">
                         <li>CATALOGO A-Z</li>
                     </a>
                     <a class="text-decoration-none" href="/">

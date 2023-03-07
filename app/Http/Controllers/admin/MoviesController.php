@@ -39,7 +39,7 @@ class MoviesController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        
+
         $newMovie = new Movie();
         $newMovie->title = $form_data['title'];
         $newMovie->original_title = $form_data['original_title'];
@@ -108,7 +108,6 @@ class MoviesController extends Controller
     public function destroy(Movie $movie)
     {
         $movie->delete();
-        return redirect()->route('movies.index')->with('message', $movie->title. ' è stato cancellato');
-
+        return redirect()->route('movies.index')->with('message', $movie->title . ' è stato cancellato');
     }
 }

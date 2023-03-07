@@ -20,19 +20,22 @@
                                     <li><span class="fw-bold">Vote:</span> {{ $movie['vote'] }}</li>
                                 </ul>
                                 <div class="d-flex gap-2 flex-wrap">
-                                    <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
-                                    <form action="{{ route('movies.destroy', ['movie' => $movie['id']]) }}" method="POST">
+                                    <a href="{{ route('admin.movies.edit', ['movie' => $movie['id']]) }}"><button
+                                            class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                                    <form action="{{ route('admin.movies.destroy', ['movie' => $movie['id']]) }}"
+                                        method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa-solid fa-dumpster-fire"></i></button>
                                     </form>
-                                    <a href="{{ route('movies.show', $movie->id) }}"><button class="btn btn-info">More info <i class="fa-solid fa-circle-info"></i></button></a>
+                                    <a href="{{ route('admin.movies.show', $movie->id) }}"><button class="btn btn-info">More
+                                            info <i class="fa-solid fa-circle-info"></i></button></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-                <a href="{{ route('movies.create') }}">
+                <a href="{{ route('admin.movies.create') }}">
 
                     <button class="btn btn-outline-warning">Add new movie <i class="fa-solid fa-plus"></i></button>
 

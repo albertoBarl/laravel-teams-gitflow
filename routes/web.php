@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\MoviesController as MoviesController;
+use App\Http\Controllers\Admin\PagesController as PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
-Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/movies', MoviesController::class)->parameters(['movies'=>'movie:id']);
+Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', [PagesController::class, 'index'])->name('dashboard');
+    Route::resource('/movies', MoviesController::class)->parameters(['movies' => 'movie:id']);
 });
 
 
@@ -30,4 +32,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
