@@ -14,11 +14,17 @@ class Movie extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public static function generateSlug($title){
+    public static function generateSlug($title)
+    {
         return Str::slug($title, '-');
     }
 
-    public function genre() {
+    public function genre()
+    {
         return $this->belongsTo(Genre::class);
+    }
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class);
     }
 }

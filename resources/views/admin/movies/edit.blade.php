@@ -70,6 +70,26 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group m-2">
+                        <div class="fs-2 fw-semibold">Actors</div>
+                        @foreach ($actors as $actor)
+                        <div class="form-check @error('actors') is-invalid @enderror">
+                            @if($errors->any())
+                            {{-- 1 CASO --}}
+                            {{-- Ci sono errori di validazione e bisogna ricaricare i tag selezionati tramite funzione ''old''' --}}
+                            <input type="checkbox" value="{{$actor->id}}" name="actors[]" {{in_array($actor->id, old('actors', [])) ? 'checked' : ''}} class="form-check-input">
+                            <label class="form-check-label">{{$actor->name}}</label>
+                            @else
+                            {{-- 2 CASO --}}
+                            {{-- Se non ci sono errori di validazione la pagina è stata aperta per la prima volta e quindi bisogna recuperare i tag in relazione con il post --}}
+                            <input type="checkbox" value="{{$actor->id}}" name="actors[]" {{$movie->actors->contains($actor) ? 'checked' : ''}} class="form-check-input">
+                            @endif <label class="form-check-label">{{$actor->name}}</label>
+                        </div>
+                        @endforeach
+                        @error('actors')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-success">Save</button>
                 </form>
             </div>

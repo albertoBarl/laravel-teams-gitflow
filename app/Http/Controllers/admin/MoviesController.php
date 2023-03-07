@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Movie as Movie;
+
 use App\Models\Genre;
+use App\Models\Actor as Actor;
+
 
 class MoviesController extends Controller
 {
@@ -28,8 +31,12 @@ class MoviesController extends Controller
      */
     public function create()
     {
+
         $genres = Genre::all();
         return view('admin.movies.create', compact('genres'));
+
+        $actors = Actor::all();
+        return view('movies.create', compact('actors'));
     }
 
     /**
@@ -54,6 +61,12 @@ class MoviesController extends Controller
         $newMovie->save();
 
         return redirect()->route('movies.show', ['movie' => $newMovie->id]);
+
+        if ($request->has('actors')) {
+            $newMovie->actors()->attach($request->actors);
+        }
+
+        return redirect()->route('movies.index')->with('message', 'Film creato correttamente');
     }
 
     /**
@@ -81,7 +94,8 @@ class MoviesController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('movies.edit', compact('movie'));
+        $actors = Actor::all();
+        return view('movies.edit', compact('movie', 'actors'));
     }
 
     /**
@@ -98,6 +112,13 @@ class MoviesController extends Controller
         $data['slug'] = $slug;
 
         $movie->update($data);
+
+        if ($request->has('actors')) {
+            $movie->actors()->sync($request->actors);
+        } else {
+            $movie->actors()->sync([]);
+        }
+
         return redirect()->route('movies.index')->with('message', $movie->title . ' è stato aggiornato');
     }
 
@@ -109,6 +130,11 @@ class MoviesController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        // se non avessi inserito il CASCADEONDELETE
+        // 1' cancellare tutti i record presenti nella tabella ponte
+        $movie->actors()->sync([]);
+
+        // 2' cancellare il POST
         $movie->delete();
         return redirect()->route('movies.index')->with('message', $movie->title . ' è stato cancellato');
     }
