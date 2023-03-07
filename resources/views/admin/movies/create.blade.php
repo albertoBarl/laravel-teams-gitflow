@@ -11,7 +11,7 @@
                         <div class="alert alert-danger">{{ $error }}</div>
                     @endforeach
                 @endif
-                <form method="POST" action="{{ route('movies.store') }}">
+                <form method="POST" action="{{ route('admin.movies.store') }}">
                     @csrf
                     <div class="form-group m-2">
                         <label class="fs-2 fw-semibold" for="title">Title</label>
