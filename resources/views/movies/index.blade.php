@@ -19,18 +19,14 @@
                                     <li><span class="fw-bold">Release date:</span> {{ $movie['release_date'] }}</li>
                                     <li><span class="fw-bold">Vote:</span> {{ $movie['vote'] }}</li>
                                 </ul>
-                                <div class="d-flex">
-                                    <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button
-                                            class="btn btn-warning me-2"><i
-                                                class="fa-regular fa-pen-to-square"></i></button></a>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a href="{{ route('movies.edit', ['movie' => $movie['id']]) }}"><button class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></button></a>
                                     <form action="{{ route('movies.destroy', ['movie' => $movie['id']]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger"><i class="fa-solid fa-dumpster-fire"></i></button>
                                     </form>
-                                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-info "><button
-                                            class="btn btn-info">More info <i
-                                                class="fa-solid fa-circle-info"></i></button></a>
+                                    <a href="{{ route('movies.show', $movie->id) }}"><button class="btn btn-info">More info <i class="fa-solid fa-circle-info"></i></button></a>
                                 </div>
                             </div>
                         </div>
@@ -39,8 +35,6 @@
                 <a href="{{ route('movies.create') }}">
 
                     <button class="btn btn-outline-warning">Add new movie <i class="fa-solid fa-plus"></i></button>
-
-                    <button class="btn btn-outline-warning">Aggiungi nuovo film</button>
 
                 </a>
             </div>
