@@ -59,13 +59,13 @@ class MoviesController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('movies.show', ['movie' => $newMovie->id]);
+        return redirect()->route('admin.movies.show', ['movie' => $newMovie->id]);
 
         if ($request->has('actors')) {
             $newMovie->actors()->attach($request->actors);
         }
 
-        return redirect()->route('movies.index')->with('message', 'Film creato correttamente');
+        return redirect()->route('admin.movies.index')->with('message', 'Film creato correttamente');
     }
 
     /**
@@ -94,7 +94,7 @@ class MoviesController extends Controller
     public function edit(Movie $movie)
     {
         $actors = Actor::all();
-        return view('movies.edit', compact('movie', 'actors'));
+        return view('admin.movies.edit', compact('movie', 'actors'));
     }
 
     /**
